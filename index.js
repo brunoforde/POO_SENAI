@@ -172,3 +172,13 @@ registrarCliente('PJ', {
     razaoSocial: "", 
     logradouro: "Rua Direita", numero: "5", cidade: "Bauru", uf: "SP"
 });
+
+// Log com a lista final de clientes válidos
+console.log("\n=== LISTA FINAL DE CLIENTES VÁLIDOS ===");
+clientesValidos.forEach(c => {
+    if (c instanceof PessoaFisica) {
+        console.log(`-> PF: ${c.nome} | CPF Limpo: ${c.cpf}`);
+    } else if (c instanceof PessoaJuridica) {
+        console.log(`-> PJ: ${c.nome} | CNPJ Limpo: ${c.cnpj} | Razão Social: ${c.razaoSocial}`);
+    }
+});
