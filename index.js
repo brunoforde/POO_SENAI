@@ -43,9 +43,7 @@ class Pessoa {
         }
         this.#endereco = valor;
     }
-}
-
-class PessoaFisica extends Pessoa {
+}class PessoaFisica extends Pessoa {
     #cpf;
     #dataNascimento;
 
