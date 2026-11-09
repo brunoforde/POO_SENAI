@@ -43,7 +43,9 @@ class Pessoa {
         }
         this.#endereco = valor;
     }
-}class PessoaFisica extends Pessoa {
+}
+
+class PessoaFisica extends Pessoa {
     #cpf;
     #dataNascimento;
 
@@ -106,3 +108,67 @@ class PessoaJuridica extends Pessoa {
         this.#razaoSocial = valor;
     }
 }
+
+// EXECUÇÃO E TESTES
+
+const clientesValidos = [];
+
+function registrarCliente(tipo, dados) {
+    try {
+        let cliente;
+        const end = new Endereco(dados.logradouro, dados.numero, dados.cidade, dados.uf);
+
+        if (tipo === 'PF') {
+            cliente = new PessoaFisica(dados.nome, end, dados.cpf, dados.dataNascimento);
+        } else if (tipo === 'PJ') {
+            cliente = new PessoaJuridica(dados.nome, end, dados.cnpj, dados.razaoSocial);
+        }
+
+        clientesValidos.push(cliente);
+        console.log(`[SUCESSO] Cliente '${dados.nome}' cadastrado com sucesso.`);
+    } catch (erro) {
+        console.error(`[ERRO] Falha ao cadastrar '${dados.nome || 'Desconhecido'}': ${erro.message}`);
+    }
+}
+
+console.log("=== INICIANDO CADASTRO DE CLIENTES ===\n");
+
+// Caso: Pessoa Física Válida (Com formatação que deve ser ignorada)
+registrarCliente('PF', {
+    nome: "Carlos Silva",
+    cpf: "123.456.789-00",
+    dataNascimento: "1995-10-25",
+    logradouro: "Rua do Comércio", numero: "100", cidade: "Piracicaba", uf: "SP"
+});
+
+// Caso: Pessoa Jurídica Válida
+registrarCliente('PJ', {
+    nome: "Tech Inovações",
+    cnpj: "12.345.678/0001-90",
+    razaoSocial: "Tech Inovações LTDA",
+    logradouro: "Av. Paulista", numero: "1000", cidade: "São Paulo", uf: "SP"
+});
+
+// Caso: Pessoa Física Inválida (Data no futuro e erro no tamanho do nome)
+registrarCliente('PF', {
+    nome: "Zé", 
+    cpf: "11122233344",
+    dataNascimento: "2050-01-01",
+    logradouro: "Rua do Erro", numero: "99", cidade: "Campinas", uf: "SP"
+});
+
+// Caso: Pessoa Jurídica Inválida (CNPJ incompleto faltando 1 dígito)
+registrarCliente('PJ', {
+    nome: "Loja Fictícia",
+    cnpj: "12.345.678/0001-9", 
+    razaoSocial: "Loja Fictícia ME",
+    logradouro: "Rua Central", numero: "10", cidade: "Sorocaba", uf: "SP"
+});
+
+// Caso: Pessoa Jurídica Inválida (Sem razão social)
+registrarCliente('PJ', {
+    nome: "Comércio Alpha",
+    cnpj: "98765432000199",
+    razaoSocial: "", 
+    logradouro: "Rua Direita", numero: "5", cidade: "Bauru", uf: "SP"
+});
