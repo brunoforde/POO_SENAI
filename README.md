@@ -14,7 +14,8 @@ Este projeto implementa o módulo de cadastro de clientes para a empresa de e-co
    ```bash
    node index.js
 
-## Logs de Execução - Evidências
+## Logs de Execução - Evidências de Testes
+## #1
 ![alt text](image.png)
-
+## #2
 ![alt text](image-1.png)
