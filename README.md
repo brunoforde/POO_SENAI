@@ -13,3 +13,6 @@ Este projeto implementa o módulo de cadastro de clientes para a empresa de e-co
 3. Abra o terminal na pasta do projeto e execute o comando:
    ```bash
    node index.js
+
+## Logs de Execução - Evidências
+![alt text](image.png)
