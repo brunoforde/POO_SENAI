@@ -173,6 +173,7 @@ registrarCliente('PJ', {
     logradouro: "Rua Direita", numero: "5", cidade: "Bauru", uf: "SP"
 });
 
+
 // Log com a lista final de clientes válidos
 console.log("\n=== LISTA FINAL DE CLIENTES VÁLIDOS ===");
 clientesValidos.forEach(c => {
