@@ -1,7 +1,7 @@
 # POO_SENAI
 ## Appfull - Cadastro de Clientes (E-commerce)
 
-**Estudante:** [Bruno Fordelone Berlanga]
+**Estudante:** Bruno Fordelone Berlanga
 
 **Disciplina:** Programação Orientada a Objetos (POO) Senai
 
