@@ -16,3 +16,5 @@ Este projeto implementa o módulo de cadastro de clientes para a empresa de e-co
 
 ## Logs de Execução - Evidências
 ![alt text](image.png)
+
+![alt text](image-1.png)
